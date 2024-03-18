@@ -8,6 +8,8 @@ class UpdateSurveyRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
+     *
+     * @return bool
      */
     public function authorize()
     {
@@ -22,9 +24,9 @@ class UpdateSurveyRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     * @return array<string, mixed>
      */
-    public function rules(): array
+    public function rules()
     {
         return [
             'title' => 'required|string|max:1000',
@@ -34,7 +36,6 @@ class UpdateSurveyRequest extends FormRequest
             'description' => 'nullable|string',
             'expire_date' => 'nullable|date|after:today',
             'questions' => 'array'
-
         ];
     }
 }

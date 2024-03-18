@@ -11,7 +11,6 @@ use App\Http\Requests\UpdateSurveyRequest;
 use App\Models\SurveyAnswer;
 use App\Models\SurveyQuestion;
 use App\Models\SurveyQuestionAnswer;
-use App\Models\SurveyQuestionAnswers;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
@@ -167,7 +166,7 @@ class SurveyController extends Controller
      *
      * @param $image
      * @throws \Exception
-     * @author Zura Sekhniashvili <dalichakhari6801@gmail.com>
+     * @author Zura Sekhniashvili <zurasekhniashvili@gmail.com>
      */
     private function saveImage($image)
     {
@@ -210,7 +209,7 @@ class SurveyController extends Controller
      * @param $data
      * @return mixed
      * @throws \Illuminate\Validation\ValidationException
-     * @author Zura Sekhniashvili <dalichakhari6801@gmail.com>
+     * @author Zura Sekhniashvili <zurasekhniashvili@gmail.com>
      */
     private function createQuestion($data)
     {
@@ -237,7 +236,7 @@ class SurveyController extends Controller
      * @param                            $data
      * @return bool
      * @throws \Illuminate\Validation\ValidationException
-     * @author Zura Sekhniashvili <dalichakhari6801@gmail.com>
+     * @author Zura Sekhniashvili <zurasekhniashvili@gmail.com>
      */
     private function updateQuestion(SurveyQuestion $question, $data)
     {
@@ -292,7 +291,7 @@ class SurveyController extends Controller
                 'answer' => is_array($answer) ? json_encode($answer) : $answer
             ];
 
-            $questionAnswer = SurveyQuestionAnswers::create($data);
+            $questionAnswer = SurveyQuestionAnswer::create($data);
         }
 
         return response("", 201);

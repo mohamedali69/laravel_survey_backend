@@ -1,4 +1,0 @@
-command to create model in laravel
-php  artisan make:model ModelName -mcrR
-command to create ressorces
-php artisan make:resource SurveyResource

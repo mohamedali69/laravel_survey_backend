@@ -8,22 +8,10 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * @return void
      */
-    public function up(): void
-    {
-        Schema::create('surveys', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->foreignIdFor(\App\Models\SurveyQuestion::class, 'survey_question_id');
-            $table->foreignIdFor(\App\Models\SurveyAnswer::class, 'survey_answer_id');
-            $table->text('answer');
-        });
-    }
-
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function up()
     {
         Schema::create('surveys', function (Blueprint $table) {
             $table->id();
@@ -36,5 +24,15 @@ return new class extends Migration
             $table->timestamps();
             $table->timestamp('expire_date')->nullable();
         });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('surveys');
     }
 };
